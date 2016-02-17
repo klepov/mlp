@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#{%  for college in colleges  %}#}
+{#    {{ college.name_college }}#}
+{##}
+{#    {%  for group in groups  %}#}
+{##}
+{#           {{ group.name_group }}#}
+{#            {%  for student in students  %}#}
+{#                <li>{{ student.get_fio }} {{ group.name_group }}</li>#}
+{#            {% endfor %}#}
+{##}
+{#    {% endfor %}#}
+{##}
+{#{% endfor %}#}
+
+{% for college in colleges %}
+    {% for student in college %}
+        {{ student.get_fio }}
+    {% endfor %}
+{% endfor %}
+</body>
+</html>

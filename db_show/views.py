@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from pip._vendor.requests import Response
 
 from db_show.models import Group,Student,College
 
@@ -13,7 +12,8 @@ def prin(request):
 
     group = Group.objects.filter(id_college=colleges)
 
-    students = Student.objects.filter(id_group=group)
+    # students = Student.objects.filter(id_group=group)
+    students = Student.objects.filter().all()
 
 
     for college in colleges:
@@ -23,7 +23,7 @@ def prin(request):
 
 
 
-    dict_val = {'colleges': list_college}
+    dict_val = {'students': students}
     # dict_val = {'colleges': list_college, "groups": groups_list, "students": students_list}
 
     return render(request,'student.html',dict_val)

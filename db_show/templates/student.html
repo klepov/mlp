@@ -1,28 +1,28 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+     <link rel="stylesheet" type="text/css" href="{% static 'db_show/style.css' %}"/>
     <title>Title</title>
 </head>
 <body>
-{#{%  for college in colleges  %}#}
-{#    {{ college.name_college }}#}
-{##}
-{#    {%  for group in groups  %}#}
-{##}
-{#           {{ group.name_group }}#}
-{#            {%  for student in students  %}#}
-{#                <li>{{ student.get_fio }} {{ group.name_group }}</li>#}
-{#            {% endfor %}#}
-{##}
-{#    {% endfor %}#}
-{##}
-{#{% endfor %}#}
 
-{% for college in colleges %}
-    {% for student in college %}
-        {{ student.get_fio }}
-    {% endfor %}
+<table>
+<tr>
+    <th>ИМЯ</th>
+    <th>ГРУППА</th>
+    <th>КОЛЛЕДЖ</th>
+    </tr>
+{% for student in students %}
+
+   <tr>
+       <td>{{ student }}</td>
+       <td>{{ student.id_group }}</td>
+       <td>{{ student.id_group.id_college }}</td>
+   </tr>
 {% endfor %}
+</table>
+
 </body>
 </html>
